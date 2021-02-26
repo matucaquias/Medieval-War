@@ -463,7 +463,7 @@ MonoBehaviour:
   damage: 10
   attackCooldown: 1
   recharging: 0
-  bullet: {fileID: 9130935169565468715, guid: 22bb845c685d02e4893ae31b6681e4f7, type: 3}
+  bullet: {fileID: 9130935169565468715, guid: e697c2ac2d9b71c41a8342854dac5cb9, type: 3}
   appleCollected: 0
   speed: 0
   dieParticle: {fileID: 2643812047346922294, guid: 062e046eddd4a9b4a98a0f9f0d80fc1f,

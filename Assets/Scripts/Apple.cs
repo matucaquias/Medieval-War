@@ -10,7 +10,7 @@ public class Apple : MonoBehaviour
     private void Start()
     {
         _rb = GetComponent<Rigidbody2D>();
-        _rb.AddForce(new Vector2(0,600));
+        _rb.AddForce(new Vector2(0,400));
     }
 
     private void OnCollisionEnter2D(Collision2D other)
