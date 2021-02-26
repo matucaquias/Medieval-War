@@ -463,10 +463,10 @@ MonoBehaviour:
   attackCooldown: 1
   recharging: 0
   bullet: {fileID: 9130935169565468715, guid: 22bb845c685d02e4893ae31b6681e4f7, type: 3}
-  appleCollected: 0
-  speed: 1.5
+  speed: 2
   dieParticle: {fileID: 2643812047346922294, guid: 062e046eddd4a9b4a98a0f9f0d80fc1f,
     type: 3}
+  appleCollected: 0
   growAppleCollected: 0
   hitSound: {fileID: 4360999362168192305}
   slash: {fileID: 4360999362168192304}
@@ -480,16 +480,13 @@ MonoBehaviour:
   lifeBarSprite:
   - {fileID: 4360999360303648031}
   - {fileID: 4360999360209495836}
-  mask:
-    serializedVersion: 2
-    m_Bits: 512
   isRanged: 1
   spawns: []
   enemy1: {fileID: 0}
   enemy2: {fileID: 0}
   attackCount: 0
   laugh: {fileID: 0}
-  _spawnCooldown: 18
+  spawnCooldown: 18
 --- !u!50 &4360999362168192316
 Rigidbody2D:
   serializedVersion: 4

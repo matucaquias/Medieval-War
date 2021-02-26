@@ -8,6 +8,7 @@ using UnityEngine;
 [RequireComponent(typeof(Animator))]
 public class CharacterController2D : MonoBehaviour
 {
+	[Header("General")]
 	public float jumpForce = 400f;
 	[Range(0, .3f)] public float smoothing = .05f;
 	public bool airControl = false;
@@ -28,19 +29,21 @@ public class CharacterController2D : MonoBehaviour
 	public float recharging;
 	private SpriteRenderer _sprite;
 	public GameObject bullet;
-	public bool appleCollected;
 	public float speed;
 	public GameObject dieParticle;
+	private Animator _animator;
+	
+	[Header("Player")]
+	public bool appleCollected;
 	public bool growAppleCollected;
 	
-	private Animator _animator;
-
+	[Header("Sounds")]
 	public AudioSource hitSound;
 	public AudioSource slash;
 	public AudioSource hop;
 	public AudioSource poof;
 	
-	//Enemy
+	[Header("Enemy")]
 	public Vector3 pointA = new Vector3(1, 0, 0);
 	public Vector3 pointB = new Vector3(-1, 0, 0);
 	private float movementTime = 3;
@@ -50,7 +53,6 @@ public class CharacterController2D : MonoBehaviour
 	public bool itMoves;
 	public GameObject drop;
 	public RectTransform[] lifeBarSprite;
-	public LayerMask mask;
 	public bool isRanged;
 	
 	

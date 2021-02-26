@@ -175,10 +175,10 @@ MonoBehaviour:
   attackCooldown: 1
   recharging: 0
   bullet: {fileID: 9130935169565468715, guid: 69b8e710a0accb24d84a2329136e36ca, type: 3}
-  appleCollected: 0
-  speed: 35
+  speed: 30
   dieParticle: {fileID: 2643812047346922294, guid: 062e046eddd4a9b4a98a0f9f0d80fc1f,
     type: 3}
+  appleCollected: 0
   growAppleCollected: 0
   hitSound: {fileID: -8479729900323088355}
   slash: {fileID: 450662200}
@@ -190,16 +190,13 @@ MonoBehaviour:
   itMoves: 0
   drop: {fileID: 0}
   lifeBarSprite: []
-  mask:
-    serializedVersion: 2
-    m_Bits: 0
   isRanged: 0
   spawns: []
   enemy1: {fileID: 0}
   enemy2: {fileID: 0}
   attackCount: 0
   laugh: {fileID: 0}
-  _spawnCooldown: 18
+  spawnCooldown: 18
 --- !u!50 &7449740092301370536
 Rigidbody2D:
   serializedVersion: 4
@@ -234,7 +231,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.0013326406, y: 0.3307103}
+  m_Offset: {x: 0.009543806, y: 0.3307103}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -245,7 +242,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.9488924, y: 2.4065835}
+  m_Size: {x: 1.883631, y: 2.4065835}
   m_EdgeRadius: 0
 --- !u!58 &8783870158603032467
 CircleCollider2D:

@@ -197,31 +197,28 @@ MonoBehaviour:
   attackRadius: 0.6
   isGrounded: 0
   life: 50
-  maxLife: 600
+  maxLife: 450
   damage: 10
   attackCooldown: 1
   recharging: 0
   bullet: {fileID: 9130935169565468715, guid: e697c2ac2d9b71c41a8342854dac5cb9, type: 3}
-  appleCollected: 0
-  speed: 1
+  speed: 5
   dieParticle: {fileID: 2643812047346922294, guid: 062e046eddd4a9b4a98a0f9f0d80fc1f,
     type: 3}
+  appleCollected: 0
   growAppleCollected: 0
   hitSound: {fileID: 6894329123288381330}
   slash: {fileID: 7122136705014848449}
   hop: {fileID: 0}
   poof: {fileID: 841756278016472416}
-  pointA: {x: 1, y: 0, z: 0}
-  pointB: {x: -1, y: 0, z: 0}
+  pointA: {x: 1.5, y: 0, z: 0}
+  pointB: {x: -1.5, y: 0, z: 0}
   lookRadius: 14.92
   itMoves: 1
   drop: {fileID: 779712315461490262, guid: 9e63310436b58934aa564552bd7425da, type: 3}
   lifeBarSprite:
   - {fileID: 0}
   - {fileID: 0}
-  mask:
-    serializedVersion: 2
-    m_Bits: 512
   isRanged: 1
   spawns:
   - {fileID: 0}
@@ -231,7 +228,7 @@ MonoBehaviour:
   enemy2: {fileID: 4360999362168192309, guid: c767fe5cd4a8f59448085beebafd6f66, type: 3}
   attackCount: 0
   laugh: {fileID: 8637362478211773741}
-  _spawnCooldown: 18
+  spawnCooldown: 18
 --- !u!50 &2354071117503734459
 Rigidbody2D:
   serializedVersion: 4
