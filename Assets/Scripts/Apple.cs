@@ -18,28 +18,23 @@ public class Apple : MonoBehaviour
         var player = other.gameObject.GetComponent<CharacterController2D>();
         if (SceneManager.GetActiveScene().name == "Level 1")
         {
-            if (other.gameObject.GetComponent<Player>() != null)
+            if (player.GetComponent<Player>() != null)
             {
                 Destroy(gameObject);
                 player.EnableSecondaryAttack();
+                player.GetComponent<Player>().bite.Play();
             }
         }
 
         if (SceneManager.GetActiveScene().name == "Level 2")
         {
-            if (other.gameObject.GetComponent<Player>() != null)
+            if (player.GetComponent<Player>() != null)
             {
                 Destroy(gameObject);
                 player.growAppleCollected = true;
-                StartCoroutine(WaitFunc(1f));
                 player.Grow();
+                player.GetComponent<Player>().bite.Play();
             }
         }
-    }
-    
-    
-    IEnumerator WaitFunc(float seconds)
-    {
-        yield return new WaitForSeconds(seconds);
     }
 }

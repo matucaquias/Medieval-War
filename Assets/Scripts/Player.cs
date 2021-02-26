@@ -10,6 +10,7 @@ public class Player : MonoBehaviour
     private bool _jump = false;
     private Animator _animator;
     public AudioSource footsteps;
+    public AudioSource bite;
     void Start()
     {
         _controller = GetComponent<CharacterController2D>();
