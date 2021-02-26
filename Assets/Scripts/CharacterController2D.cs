@@ -54,13 +54,13 @@ public class CharacterController2D : MonoBehaviour
 	public bool isRanged;
 	
 	
-	//Boss
+	[Header("Boss")]
 	public GameObject[] spawns;
 	public GameObject enemy1;
 	public GameObject enemy2;
 	public int attackCount;
 	public AudioSource laugh;
-	private float _spawnCooldown = 18f;
+	public float spawnCooldown = 18f;
 	private float _spawnRecharging;
 
 	private void Awake()
@@ -71,11 +71,6 @@ public class CharacterController2D : MonoBehaviour
 		if (GameObject.FindGameObjectWithTag("Player") != null)
 		{
 			_player = GameObject.FindGameObjectWithTag("Player").transform;
-		}
-
-		if (gameObject.name == "Enemy2" || gameObject.name == "Enemy2(Clone)")
-		{
-			isRanged = true;
 		}
 	}
 
@@ -98,7 +93,7 @@ public class CharacterController2D : MonoBehaviour
 	{
 		recharging = Mathf.Clamp(recharging, 0, attackCooldown);
 		recharging -= Time.deltaTime;
-		_spawnRecharging = Mathf.Clamp(_spawnRecharging, 0, _spawnCooldown);
+		_spawnRecharging = Mathf.Clamp(_spawnRecharging, 0, spawnCooldown);
 		_spawnRecharging -= Time.deltaTime;
 		t += Time.deltaTime;
 		
@@ -115,6 +110,7 @@ public class CharacterController2D : MonoBehaviour
 			}
 			Destroy(this);
 		}
+
 	}
 
 	private void FixedUpdate()
@@ -185,28 +181,15 @@ public class CharacterController2D : MonoBehaviour
 				itMoves = false;
 				Vector3 targetVelocity = (_player.position - transform.position).normalized * speed;
 				_rb.velocity = new Vector2(targetVelocity.x,_rb.velocity.y);
-				if (distance <= 2f && isRanged == false)
+				if (distance <= .9f && isRanged == false)
 				{
 					_animator.SetBool("Walk",false);
-					_rb.velocity = Vector3.zero;
-					Attack();
-					
-					RaycastHit2D hit = Physics2D.Raycast(attackPoint.position,attackPoint.right, distance, mask);
-					if (hit == false)
-					{ 
-						itMoves = true;
-					}
+					_rb.velocity = Vector2.zero;
+					StartCoroutine(AttackEnemy());
 				}else if (distance <= lookRadius - .2f && isRanged)
 				{
 					_animator.SetBool("Walk",false);
-					_rb.velocity = Vector3.zero;
 					SecondaryAttack();
-					
-					RaycastHit2D hit = Physics2D.Raycast(attackPoint.position,attackPoint.right, distance, mask);
-					if (hit == false)
-					{ 
-						itMoves = true;
-					}
 				}
 				
 				
@@ -228,13 +211,33 @@ public class CharacterController2D : MonoBehaviour
 		}
 	}
 
-	public void Attack()
+	public IEnumerator AttackEnemy()
 	{
+		_animator.SetTrigger("Attack");
+		yield return new WaitForSeconds(.6f);
 		Collider2D[] colliders = Physics2D.OverlapCircleAll(attackPoint.position, attackRadius, enemiesLayer);
 		if (recharging<= 0)
 		{
-			_animator.SetTrigger("Attack");
 			slash.Play();
+			foreach (Collider2D target in colliders)
+			{
+				if (target.GetComponent<CharacterController2D>() != null)
+				{
+					target.GetComponent<CharacterController2D>().TakeDamage(damage);
+				}
+			}
+			
+			recharging = attackCooldown;
+		}
+	}
+	public void Attack()
+	{
+		
+		Collider2D[] colliders = Physics2D.OverlapCircleAll(attackPoint.position, attackRadius, enemiesLayer);
+		if (recharging<= 0)
+		{
+			slash.Play();
+			_animator.SetTrigger("Attack");
 			foreach (Collider2D target in colliders)
 			{
 				if (target.GetComponent<CharacterController2D>() != null)
@@ -307,8 +310,8 @@ public class CharacterController2D : MonoBehaviour
 
 	public void Grow()
 	{
-		transform.localScale = new Vector3(0.6799413f,0.6799413f,0.6799413f);
-		maxLife = 300;
+		transform.localScale = new Vector3(0.55f,0.55f,0.55f);
+		maxLife = 350;
 		damage = 20;
 	}
 
@@ -331,7 +334,7 @@ public class CharacterController2D : MonoBehaviour
 						_animator.SetTrigger("Spell");
 						laugh.Play();
 						Instantiate(enemy1, spawn.transform.position, spawn.transform.rotation);
-						_spawnRecharging = _spawnCooldown;
+						_spawnRecharging = spawnCooldown;
 					}
 					attackCount++;
 				}
@@ -344,12 +347,12 @@ public class CharacterController2D : MonoBehaviour
 						_animator.SetTrigger("Spell");
 						laugh.Play();
 						Instantiate(enemy2, spawn.transform.position, spawn.transform.rotation);
-						_spawnRecharging = _spawnCooldown;
+						_spawnRecharging = spawnCooldown;
 					}
 					attackCount++;
 				}
 			}
-			yield return new WaitForSeconds(_spawnCooldown);
+			yield return new WaitForSeconds(spawnCooldown);
 		}
 	}
 }

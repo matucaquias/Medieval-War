@@ -11,6 +11,7 @@ public class Player : MonoBehaviour
     private Animator _animator;
     public AudioSource footsteps;
     public AudioSource bite;
+    public AudioSource heal;
     void Start()
     {
         _controller = GetComponent<CharacterController2D>();

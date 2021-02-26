@@ -14,11 +14,11 @@ public class Boss : MonoBehaviour
 
     private void Update()
     {
-        if (_controller.attackCount == 3)
+        if (_controller.attackCount == 3 && _controller != null)
         {
             _controller.isRanged = true;
-            _controller.Pursuit();
             _controller.EnemyMove();
+            _controller.SecondaryAttack();
         }
     }
 

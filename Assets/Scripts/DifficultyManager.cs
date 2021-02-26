@@ -27,9 +27,9 @@ public class DifficultyManager : MonoBehaviour
         {
             foreach (var enemy in enemies)
             {
-                enemy.GetComponent<CharacterController2D>().maxLife *= 1.3f;
-                enemy.GetComponent<CharacterController2D>().damage *= 1.3f;
-                enemy.GetComponent<CharacterController2D>().lookRadius *= 1.3f;
+                enemy.GetComponent<CharacterController2D>().maxLife *= 1.2f;
+                enemy.GetComponent<CharacterController2D>().damage *= 1.2f;
+                enemy.GetComponent<CharacterController2D>().lookRadius *= 1.2f;
             }
         }
     }

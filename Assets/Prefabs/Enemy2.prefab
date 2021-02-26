@@ -456,8 +456,9 @@ MonoBehaviour:
   groundChecker: {fileID: 4360999360471404123}
   attackPoint: {fileID: 4360999360391153987}
   attackRadius: 0.6
+  isGrounded: 0
   life: 50
-  maxLife: 50
+  maxLife: 80
   damage: 10
   attackCooldown: 1
   recharging: 0
@@ -473,7 +474,7 @@ MonoBehaviour:
   poof: {fileID: 4360999362168192311}
   pointA: {x: 1, y: 0, z: 0}
   pointB: {x: -1, y: 0, z: 0}
-  lookRadius: 5
+  lookRadius: 7
   itMoves: 1
   drop: {fileID: 779712315461490262, guid: 9e63310436b58934aa564552bd7425da, type: 3}
   lifeBarSprite:
@@ -482,12 +483,13 @@ MonoBehaviour:
   mask:
     serializedVersion: 2
     m_Bits: 512
-  isRanged: 0
+  isRanged: 1
   spawns: []
   enemy1: {fileID: 0}
   enemy2: {fileID: 0}
   attackCount: 0
   laugh: {fileID: 0}
+  _spawnCooldown: 18
 --- !u!50 &4360999362168192316
 Rigidbody2D:
   serializedVersion: 4

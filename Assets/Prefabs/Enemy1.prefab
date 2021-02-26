@@ -426,8 +426,9 @@ MonoBehaviour:
   groundChecker: {fileID: 9046933998944074586}
   attackPoint: {fileID: 9046934000473043081}
   attackRadius: 0.6
+  isGrounded: 0
   life: 50
-  maxLife: 50
+  maxLife: 110
   damage: 10
   attackCooldown: 1
   recharging: 0
@@ -452,6 +453,12 @@ MonoBehaviour:
   mask:
     serializedVersion: 2
     m_Bits: 0
+  isRanged: 0
+  spawns: []
+  enemy1: {fileID: 0}
+  enemy2: {fileID: 0}
+  attackCount: 0
+  laugh: {fileID: 0}
 --- !u!50 &9046934000344512085
 Rigidbody2D:
   serializedVersion: 4

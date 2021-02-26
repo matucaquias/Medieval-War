@@ -13,6 +13,7 @@ public class Drop : MonoBehaviour
         {
             var player = other.gameObject.GetComponent<CharacterController2D>();
             Destroy(gameObject);
+            player.GetComponent<Player>().heal.Play();
             if (player.life < player.maxLife)
             {
                 player.life += lifeDrop;

@@ -19,7 +19,6 @@ public class Elevator : MonoBehaviour
     private void Update()
     {
         t += Time.deltaTime;
-        Debug.Log(transform.localPosition.y);
     }
     
     private void FixedUpdate()
@@ -30,7 +29,6 @@ public class Elevator : MonoBehaviour
             _rb.velocity = new Vector2(0,targetVelocity.y);
         }else if (transform.localPosition.y <= targetHeight)
         {
-            _rb.velocity = Vector2.zero;
             _rb.bodyType = RigidbodyType2D.Static;
         }
     }
