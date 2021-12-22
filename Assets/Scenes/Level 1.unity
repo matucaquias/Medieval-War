@@ -3859,7 +3859,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.34344816, y: 24.391365}
+  m_Offset: {x: -0.86453295, y: 24.391365}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -3870,7 +3870,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.6868963, y: 57.20295}
+  m_Size: {x: 4.1028585, y: 57.20295}
   m_EdgeRadius: 0
 --- !u!1 &1288458285
 GameObject:
@@ -5875,7 +5875,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7774451, y: 1}
+    m_SensorSize: {x: 1.6375321, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
